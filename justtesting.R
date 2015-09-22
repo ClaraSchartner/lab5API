@@ -7,6 +7,7 @@ library(httr)
 r<-GET("https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk")
 status_code(r)
 
+
 headers(r)
 content(r, "raw")
 f<-GET("https://maps.googleapis.com/maps/api/directions/json?origin=Chicago,IL&destination=Los+Angeles,CA&waypoints=Joplin,MO|Oklahoma+City,OK&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk")
@@ -14,17 +15,22 @@ status_code(f)
 f
 
 
-content(f)$routes[[1]]$legs[[1]]$steps[[1]]$start_location$lat[[1]]
+
+
+input<-function(origin,destination){
+  text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
+  key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
+  inquery<-"&destination="
+  url.query<-paste0(text,origin,inquery,destination,key)
+ r<- GET(url.query)
+
+
+
 
 longi.lati<-function(r){
-l<-1
-determine<-1
-while(determine){
-determine<-c(FALSE)
-determine<-is.numeric(content(r)$routes[[1]]$legs[[1]]$steps[[l]]$start_location$lat[[1]])
-l<-l+1
-}
-l<-l-1
+
+l<-length(content(r)$routes[[1]]$legs[[1]]$steps)
+
 
 lati<-function(r){
 location.lat<-NULL
@@ -52,4 +58,7 @@ lat<-lati(r)
 }
 
 locations<-location(r)}
-location(r)
+sol<-longi.lati(r)
+sol
+}
+input("Graz", "Vienna")
