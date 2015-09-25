@@ -33,7 +33,6 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(mapproj)
     
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
-    key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
     inquery<-"&destination="
     if(is.null(avoid)){
         av<-NULL
@@ -41,6 +40,7 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
         av<-"&avoid="
     }
     mode<-"&mode="
+    key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
     url.query<-paste0(text,origin,inquery,destination,av,avoid,mode,travel_mode,key)
     r<-GET(url.query)
   

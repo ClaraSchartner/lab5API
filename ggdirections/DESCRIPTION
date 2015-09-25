@@ -11,3 +11,4 @@ Imports: httr,
     ggplot2,
     ggmap,
     mapproj
+Suggests: testthat
