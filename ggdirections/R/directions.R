@@ -1,23 +1,46 @@
-library(httr)
-library(ggplot2)
-library(ggmap)
-library(mapproj)
-library(maps)
+#'Finding the directions
+#'
+#'A function to find the route between two countries/cities.
+#'
+#'@param origin a character string for the name of the origin
+#'@param destination a character string for the name of the destination
+#'@param avoid an optional parameter using to indicate that the calculated route should avoid this typical features.
+#'Followings are the list of features:
+#'\itemize{
+#'  \item tolls
+#'  \item highways
+#'}
+#'@param travel_mode an optional parameter using to indicate the mode of travel.
+#'\itemize{
+#'  \item \strong{driving} (default): indicates the driving direction on the road.
+#'  \item \strong{walking}: indicates walking direction on the pedestrian.
+#'  \item \strong{bicycling}: indicates the bicycling direction on the bicycle path.
+#'}
+#'
+#'@return The map showing the origin and destination places along with 
+#'the several red dots which indicate the intersection or crossing between the route.
+#'
+#'@examples
+#'directions("Vienna", "Graz")
+#'directions("Bangkok", "Pattaya", avoid="tolls")
+#'directions("Manchester", "Leeds", travel_mode="walking")
+#'
 
-directions<-function(origin,destination,avoid=NULL,travel_mode=NULL){
+directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
+    library(httr)
+    library(ggplot2)
+    library(ggmap)
+    library(mapproj)
+    
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
     key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
     inquery<-"&destination="
-    if(is.null(travel_mode)){
-        mode<-NULL
-    }else{
-        mode<-"&mode="
-    }
     if(is.null(avoid)){
         av<-NULL
     }else{
         av<-"&avoid="
-        }
+    }
+    mode<-"&mode="
     url.query<-paste0(text,origin,inquery,destination,av,avoid,mode,travel_mode,key)
     r<-GET(url.query)
   
