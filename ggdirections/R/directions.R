@@ -31,6 +31,9 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(ggplot2)
     library(ggmap)
     library(mapproj)
+    library(maps)
+    
+    stopifnot(is.character(origin) & is.character(destination))
     
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
     inquery<-"&destination="

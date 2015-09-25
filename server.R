@@ -2,6 +2,9 @@ library(shiny)
 library(ggdirections) 
 
 shinyServer(function(input, output) {
+    dataInput <- reactive({
+        
+    })
     output$map <- renderPlot({
         avoid <- switch(input$avoid, 
                         "None"= NULL,

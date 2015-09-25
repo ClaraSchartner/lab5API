@@ -10,5 +10,6 @@ License: GPL-3
 Imports: httr,
     ggplot2,
     ggmap,
-    mapproj
+    mapproj,
+    maps
 Suggests: testthat
