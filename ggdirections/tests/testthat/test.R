@@ -5,4 +5,7 @@ x <- directions("Vienna", "Graz")
 test_that("the return value has the correct class",{
     expect_equal(class(x), c("gg", "ggplot"))
 })
-
+#
+test_that("does not throw error for erronous input",{
+  expect_error(directions("Washington","Quito"))
+})

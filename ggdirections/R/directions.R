@@ -46,7 +46,7 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
     url.query<-paste0(text,origin,inquery,destination,av,avoid,mode,travel_mode,key)
     r<-GET(url.query)
-  
+  stopifnot(length(content(r)$routes)>0)
     longi.lati<-function(r){
     
         l<-length(content(r)$routes[[1]]$legs[[1]]$steps)
