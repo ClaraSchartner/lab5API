@@ -5,10 +5,10 @@ shinyUI(fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            helpText("Choose the place you want to go."),
+            helpText("Choose the place you want to go to."),
             
-            textInput("origin", label=h3("Origin"), value="Type a country or city..."),
-            textInput("dest", label=h3("Destination"), value="Type a country or city...")
+            textInput("origin", label=h3("Origin"), value="Type in a city..."),
+            textInput("dest", label=h3("Destination"), value="Type in a city...")
         ),
         mainPanel(
             #textOutput("text1"),
