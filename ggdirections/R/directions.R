@@ -32,7 +32,7 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(ggmap)
     library(mapproj)
     library(maps)
-    
+    library(XML)
     stopifnot(is.character(origin) & is.character(destination))
     
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
