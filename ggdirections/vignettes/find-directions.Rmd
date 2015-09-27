@@ -1,0 +1,74 @@
+---
+title: "Finding the directions"
+author: "Clara Schartner and Araya Eamrurksiri"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The package `ggdirections` includes a function `directions` that give you routes from the origin to the destination place.
+
+## Purpose
+
+This package will help the user find a route to their destination, and also give them the direction to go.
+
+## Usage
+The function can be used like this: `directions(origin, destination, avoid = NULL , travel_mode = "driving")`
+
+## Function structure
+`directions` function is consisted of two mains parameters and another two optional parameters.
+
+1. `orgin` is the origin city 
+
+1. `destination` is your destination city that you wish to go to
+
+1. `avoid` indicates that the calculated route should avoid this typical features.
+
+    * tolls
+    * highways
+
+1. `travel_mode` indicates the mode of travel
+
+    * driving (default): the driving direction on the road
+    * walking: the walking direction on the pedestrian.
+    * bicycling: the bicycling direction on the bicycle path.
+
+## How to use the function?
+
+First, the most and important step of all is to load the `ggdirections` package into your R session.
+
+```{r, echo=FALSE}
+library(ggdirections)
+```
+
+Now, it's time to think about the place you have in mind and then put them on the `directions` function.
+
+```{r}
+directions("Barcelona", "Madrid")
+```
+
+The map appears the route from Barcelona to Madrid as you wish. The several red dots in the map indicate the intersection or crossing between the route.
+
+### Avoid 
+What if you want to avoid tolls or highways for your journey? You can put __bold__avoid parameter to the function. It will calculate new route avoiding such feature.
+
+```{r}
+directions("Barcelona", "Madrid", avoid = "tolls")
+```
+
+The map shows the route from Barcelona to Madrid. However, you can notice the slightly different between this map and the previous one ,and that is a movement of the red dots. The function is now calculated the new route for you which avoid the tolls. 
+
+### Travel Mode
+You can also put **bold**travel_mode parameter to the function as wll. The default for this parameter is set to "driving".
+
+```{r}
+directions("Barcelona", "Madrid", travel_mode = "walking")
+```
+
+The map, again, shows the route for you to go from Barcelona to Madrid by walking.
+
+
+## References

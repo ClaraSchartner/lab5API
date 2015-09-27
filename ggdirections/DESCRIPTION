@@ -12,4 +12,6 @@ Imports: httr,
     ggmap,
     mapproj,
     maps
-Suggests: testthat
+Suggests: testthat,
+    knitr
+VignetteBuilder: knitr
