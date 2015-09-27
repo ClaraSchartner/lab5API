@@ -6,7 +6,8 @@ shinyServer(function(input, output) {
         avoid <- switch(input$avoid, 
                         "None"= NULL,
                         "Tolls"= "tolls",
-                        "Highways" = "highways")
+                        "Highways" = "highways",
+                        "Ferries" = "ferries")
         mode <- switch(input$mode,
                        "Driving"="driving",
                        "Walking"="walking",

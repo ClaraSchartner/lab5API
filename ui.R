@@ -10,11 +10,11 @@ shinyUI(fluidPage(
             
             textInput("origin", label=h4("Origin"), value="Linköping"),
             textInput("dest", label=h4("Destination"), value="Stockholm"),
-            radioButtons("avoid", label=h4("Avoid"), choices=list("None","Tolls","Highways")),
-            selectInput("mode", label=h4("Travel Mode"), choices=list("Driving","Walking","Bicycling"),selected="Driving"),
-            br(),
+            radioButtons("avoid", label=h4("Avoid"), choices=list("None","Tolls","Highways","Ferries")),
+            selectInput("mode", label=h4("Travel Mode"), choices=list("Driving","Walking","Bicycling"),selected="Driving")
+            #br(),
             #submitButton("Go"),
-            actionButton("goButton", label="Go")
+            #actionButton("goButton", label="Go")
         ),
         mainPanel(
             h3("Be patient....1...2.....3..Let's Go!!!"),
