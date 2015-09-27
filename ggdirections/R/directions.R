@@ -9,6 +9,7 @@
 #'\itemize{
 #'  \item tolls
 #'  \item highways
+#'  \item ferries
 #'}
 #'@param travel_mode an optional parameter using to indicate the mode of travel.
 #'\itemize{

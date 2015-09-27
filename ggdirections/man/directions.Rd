@@ -16,6 +16,7 @@ Followings are the list of features:
 \itemize{
  \item tolls
  \item highways
+ \item ferries
 }}
 
 \item{travel_mode}{an optional parameter using to indicate the mode of travel.

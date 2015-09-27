@@ -29,6 +29,7 @@ The function can be used like this: `directions(origin, destination, avoid = NUL
 
     * tolls
     * highways
+    * ferries
 
 1. `travel_mode` indicates the mode of travel
 
