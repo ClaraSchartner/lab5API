@@ -34,7 +34,7 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(mapproj)
     library(maps)
     library(XML)
-  stopifnot(!(exists("origin")&exists("destination")))
+  stopifnot((exists("origin")&exists("destination")))
     stopifnot(is.character(origin) & is.character(destination))
     url.query<-NULL
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
