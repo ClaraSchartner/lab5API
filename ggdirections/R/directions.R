@@ -1,8 +1,8 @@
 #'Finding the directions
 #'
-#'A function to find the route between two countries/cities.
+#'A function to find the route between two cities.
 #'
-#'@param origin a character string for the name of the origin
+#'@param origin a character string for the name where the journey starts
 #'@param destination a character string for the name of the destination
 #'@param avoid an optional parameter using to indicate that the calculated route should avoid this typical features.
 #'Followings are the list of features:
