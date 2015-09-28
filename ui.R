@@ -2,7 +2,7 @@ library(shiny)
 library(maps)
 
 shinyUI(fluidPage(
-    titlePanel("Find the routes to your desire destination!"),
+    titlePanel("Find the route to your desired destination!"),
     
     sidebarLayout(
         sidebarPanel(
@@ -17,7 +17,7 @@ shinyUI(fluidPage(
             #actionButton("goButton", label="Go")
         ),
         mainPanel(
-            h3("Be patient....1...2.....3..Let's Go!!!"),
+            h3("Intersections or turns on your way"),
             plotOutput("map")
         )
     )
