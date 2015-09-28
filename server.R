@@ -12,7 +12,11 @@ shinyServer(function(input, output) {
                        "Driving"="driving",
                        "Walking"="walking",
                        "Bicycling"="bicycling")
-        
-        directions(input$origin,input$dest,avoid,mode)
+        o <- input$origin
+        d <- input$dest
+        if(!(exists("o") & exists("d"))){
+            stop("Please complete")
+        }else{
+            directions(o,d,avoid,mode)}
     })
 })
