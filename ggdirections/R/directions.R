@@ -35,8 +35,9 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(maps)
     library(XML)
     
-    stopifnot((exists("origin")&exists("destination")))
-    stopifnot(is.character(origin) & is.character(destination))
+    if(exists("origin")&exists("destination")&is.character(origin) & is.character(destination)){
+    
+    #stopifnot(is.character(origin) & is.character(destination))
     url.query<-NULL
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
     inquery<-"&destination="
@@ -93,4 +94,7 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     al1<-get_map(location = c(lon = (max(sol$long)+min(sol$long))/2, lat = (max(sol$lat)+min(sol$lat))/2),zoom = zoom, maptype = 'roadmap')
     al1MAP<-ggmap(al1)+geom_point(data=sol, aes(x=long, y=lat), color="red")+xlab("Longitude")+ylab("Latitude")+ggtitle("Direction Map")
     return(al1MAP)
+    }else{
+        stop("Please put in two cities")
+    }
 }
