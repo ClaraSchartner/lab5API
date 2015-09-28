@@ -34,7 +34,8 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     library(mapproj)
     library(maps)
     library(XML)
-  stopifnot((exists("origin")&exists("destination")))
+    
+    stopifnot((exists("origin")&exists("destination")))
     stopifnot(is.character(origin) & is.character(destination))
     url.query<-NULL
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
@@ -48,8 +49,9 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     key<-"&key=AIzaSyDPWJQAU2Ck9WA8DSg_aWPmrk0F5buL-zk"
     url.query<-paste0(text,origin,inquery,destination,av,avoid,mode,travel_mode,key)
     r<-GET(url.query)
+    
     stopifnot(!is.null(url.query))
-  stopifnot(length(content(r)$routes)>0)
+    stopifnot(length(content(r)$routes)>0)
   
     longi.lati<-function(r){
     
@@ -84,8 +86,8 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
 
     difference<-max(abs(max(sol$lat)-min(sol$lat)),abs(max(sol$long)-min(sol$long)))
   
-    breaks<-c(60,50,40,30,10,5,3,2,1,0.7,0.3)
-    zoom.options<-c(1:11)
+    breaks<-c(60,50,40,30,10,5,3,2,1,0.5,0.3,0.2)
+    zoom.options<-c(1:12)
     zoom<-zoom.options[sum(difference<breaks)]
   
     al1<-get_map(location = c(lon = (max(sol$long)+min(sol$long))/2, lat = (max(sol$lat)+min(sol$lat))/2),zoom = zoom, maptype = 'roadmap')
