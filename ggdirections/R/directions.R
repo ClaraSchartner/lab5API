@@ -37,7 +37,6 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     
     if(exists("origin")&exists("destination")&is.character(origin) & is.character(destination)){
     
-    #stopifnot(is.character(origin) & is.character(destination))
     url.query<-NULL
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
     inquery<-"&destination="
@@ -52,7 +51,10 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
     r<-GET(url.query)
     
     stopifnot(!is.null(url.query))
-    stopifnot(length(content(r)$routes)>0)
+    
+    if(length(content(r)$routes)<=0){
+        stop("Please put in two cities")
+    }
   
     longi.lati<-function(r){
     
