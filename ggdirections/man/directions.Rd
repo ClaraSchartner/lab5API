@@ -7,7 +7,7 @@
 directions(origin, destination, avoid = NULL, travel_mode = "driving")
 }
 \arguments{
-\item{origin}{a character string for the name of the origin}
+\item{origin}{a character string for the name where the journey starts}
 
 \item{destination}{a character string for the name of the destination}
 
@@ -31,7 +31,7 @@ The map showing the origin and destination places along with
 the several red dots which indicate the intersection or crossing between the route.
 }
 \description{
-A function to find the route between two countries/cities.
+A function to find the route between two cities.
 }
 \examples{
 directions("Vienna", "Graz")
