@@ -38,14 +38,14 @@ directions<-function(origin,destination,avoid=NULL,travel_mode="driving"){
   stopifnot(exists("origin")&exists("destination"))
 
     
-<<<<<<< HEAD
+
     stopifnot((exists("origin")&exists("destination")))
 
     stopifnot(is.character(origin) & is.character(destination))
-=======
+
     if(exists("origin")&exists("destination")&is.character(origin) & is.character(destination)){
     
->>>>>>> feef8a453db3ce5d67763080d306730050672569
+
     url.query<-NULL
     text<-"https://maps.googleapis.com/maps/api/directions/json?origin="
     inquery<-"&destination="
